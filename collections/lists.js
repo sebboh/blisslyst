@@ -22,11 +22,19 @@ Meteor.methods({
     // pick out the whitelisted keys
     var list = _.extend(_.pick(listAttributes, 'listName'), { userId: user._id,
       creator: user.username,
-      submitted: new Date().getTime()
+      submitted: new Date().getTime(),
+      items: []
     });
 
     var listId = Lists.insert(list);
     
     return listId; 
+  },
+
+  addListItem: function(listId, item) {
+    var list = Lists.findOne(listId);
+    if (! list )
+      throw new Meteor.Error(404, "List not found");
+    Lists.update(listId, { $addToSet: {items: item}});
   }
 });
