@@ -3,6 +3,7 @@
     "accounts-ui-bootstrap-dropdown": {},
     "router": {},
     "spin": {},
-    "bootstrap3-less": {}
+    "bootstrap3-less": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

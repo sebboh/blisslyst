@@ -6,7 +6,6 @@
 standard-app-packages
 preserve-inputs
 
-accounts-ui-bootstrap-dropdown
 accounts-password
 
 router
@@ -17,3 +16,5 @@ spin
 less
 
 bootstrap3-less
+
+accounts-ui-bootstrap-3
