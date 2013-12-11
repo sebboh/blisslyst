@@ -1,15 +1,11 @@
 <template name="createList"> 
-  <form class="main">
-    <div class="control-group">
-      <label class="control-label" for="listName">Name</label> 
-      <div class="controls">
-        <input name="listName" type="text" value="" placeholder="Name your List!"/>
-      </div>
+  <form role="form" class="main">
+    <div class="form-group">
+      <label for="listName">Name</label> 
+      <input class="form-control" name="listName" id="listName" type="text" value="" placeholder="Name your List!"/>
     </div>
-    <div class="control-group"> 
-      <div class="controls">
-        <input type="submit" value="Create" class="btn btn-primary"/> 
-      </div>
+    <div class="form-group"> 
+      <input type="submit" value="Create" class="btn btn-primary"/> 
     </div>
   </form>
 </template>

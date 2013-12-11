@@ -31,10 +31,22 @@ Meteor.methods({
     return listId; 
   },
 
+  deleteList: function(listId) {
+    Lists.remove(listId);
+  },
+
   addListItem: function(listId, item) {
     var list = Lists.findOne(listId);
     if (! list )
       throw new Meteor.Error(404, "List not found");
     Lists.update(listId, { $addToSet: {items: item}});
+  },
+
+  deleteListItem: function(listId, item) {
+    var list = Lists.findOne(listId);
+    if (! list )
+      throw new Meteor.Error(404, "List not found");
+    Lists.update( { items: item }, { $pull: { items: item }});
   }
+
 });

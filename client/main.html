@@ -2,11 +2,13 @@
   <title>Eskimo Kisses</title>
 </head> 
 <body>
-  <div class="container">
+  <header>
     {{> header}}
     {{> errors}}
-    <div id="main" class="row-fluid">
-      {{renderPage}}
-    </div>
+  </header>
+  <div class="container">
+    <main role="main" class="row-fluid">
+    {{renderPage}}
+    </main>
   </div>
 </body>

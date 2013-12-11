@@ -1,16 +1,18 @@
 <template name="listItems">
-  {{#with currentList}}
-    <h2>{{listName}}</h2>
-    {{#if listItems}}
-      {{#each listItems}}
-        <ul>
-          <li>{{this}}</li>
-        </ul>
-      {{/each}}
-    {{else}}
-      <p>No items yet!</p>
-    {{/if}}
-    <hr/>
-    {{> addItem}}
-  {{/with}}
+  <div class="main list">
+    {{#with currentList}}
+      <h3>{{listName}}</h3>
+      {{#if listItems}}
+        {{#each listItems}}
+          <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/each}}
+      {{else}}
+        <p>No items yet!</p>
+      {{/if}}
+      <hr/>
+      {{> addItem}}
+    {{/with}}
+  </div>
 </template>

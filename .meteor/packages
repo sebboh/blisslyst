@@ -8,10 +8,12 @@ preserve-inputs
 
 accounts-ui-bootstrap-dropdown
 accounts-password
-bootstrap
 
 router
 page-js-ie-support
 HTML5-History-API
 
 spin
+less
+
+bootstrap3-less

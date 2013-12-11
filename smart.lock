@@ -4,7 +4,8 @@
     "basePackages": {
       "accounts-ui-bootstrap-dropdown": {},
       "router": {},
-      "spin": {}
+      "spin": {},
+      "bootstrap3-less": {}
     },
     "packages": {
       "accounts-ui-bootstrap-dropdown": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.0",
         "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+      },
+      "bootstrap3-less": {
+        "git": "https://github.com/eprochasson/bootstrap3-less",
+        "tag": "v0.1.5",
+        "commit": "5074432c020ffc7a676a812e92104ce0fa96080f"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
