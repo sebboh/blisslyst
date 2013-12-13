@@ -4,9 +4,14 @@ Template.addItem.events({
     
     var item = $(e.target).find('[name=item]').val();
 
-    Meteor.call('addListItem', Session.get('currentListId'), item, function(error, id) { 
-      if (error)
+    Meteor.call('addListItem', Session.get('currentListId'), item, function(error) { 
+    if (error)
         return alert(error.reason);
-    });
-  }
+    else
+        $('#addItemForm')[0].reset();
+
+
+
+});
+}
 });
