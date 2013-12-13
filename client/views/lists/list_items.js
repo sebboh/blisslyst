@@ -12,3 +12,21 @@ Template.listItems.helpers({
     }
   }
 });
+
+Template.listItems.events({ 
+  'mouseover .listItem': function(e) {
+      var $target = $(e.target);
+      $target.find('a').removeClass('hide');
+  },
+  'mouseout .listItem': function(e) {
+    var $target = $(e.target);
+    $target.find('a').addClass('hide');
+  }/*
+  ,
+  'click .removeItem': function(e) {
+    var $target = $(e.target);
+    $target.parent().html();
+    return alert($target.parent().html());
+  }*/
+
+});

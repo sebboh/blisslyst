@@ -5,7 +5,8 @@
       {{#if listItems}}
         {{#each listItems}}
           <ul>
-            <li>{{this}}</li>
+            <li class="listItem">{{this}}
+              <a class="hide removeItem"><i class="glyphicon glyphicon-remove-circle"></i></a></li>
           </ul>
         {{/each}}
       {{else}}
