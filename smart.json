@@ -4,6 +4,7 @@
     "router": {},
     "spin": {},
     "bootstrap3-less": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "font-awesome": {}
   }
 }

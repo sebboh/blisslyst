@@ -3,12 +3,11 @@
     {{#with currentList}}
       <h3>{{listName}}</h3>
       {{#if listItems}}
+      <ul>
         {{#each listItems}}
-          <ul>
-            <li class="listItem">{{this}}
-              <a class="hide removeItem"><i class="glyphicon glyphicon-remove-circle"></i></a></li>
-          </ul>
-        {{/each}}
+        <li class="listItem">{{this}}&nbsp;&nbsp;<a class="hide removeItem"><i class="fa fa-times-circle"></i></a></li>
+          {{/each}}
+        </ul>
       {{else}}
         <p>No items yet!</p>
       {{/if}}
