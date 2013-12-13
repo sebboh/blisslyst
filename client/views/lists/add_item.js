@@ -9,9 +9,6 @@ Template.addItem.events({
         return alert(error.reason);
     else
         $('#addItemForm')[0].reset();
-
-
-
 });
 }
 });
