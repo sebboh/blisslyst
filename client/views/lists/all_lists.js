@@ -1,5 +1,6 @@
 Template.allLists.helpers({
   lists: function() {
-    return Lists.find();
+    // only show lists that are not archived
+    return Lists.find({ $or: [ { archive: {$exists: false } }, { archive: false } ] });
   }
 });

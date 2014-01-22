@@ -2,6 +2,14 @@
   <div class="main list">
     {{#with currentList}}
       <h3>{{listName}}</h3>
+      <button class="btn btn-primary archiveList">
+        <i class="fa fa-folder-open-o"></i>
+      </button>
+
+      <button class="btn btn-primary deleteList">
+        <i class="fa fa-trash-o"></i>
+      </button>
+
       {{#if listItems}}
       <ul>
         {{#each listItems}}

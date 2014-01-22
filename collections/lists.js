@@ -31,6 +31,10 @@ Meteor.methods({
     return listId; 
   },
 
+  archiveList: function(listId) {
+    Lists.update(listId, {$set: { archive: true }})
+  },
+
   deleteList: function(listId) {
     Lists.remove(listId);
   },

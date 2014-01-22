@@ -29,5 +29,20 @@ Template.listItems.events({
       if (error)
         return alert(error.reason);
     });
+  },
+  'click .archiveList': function(e) {
+    Meteor.call('archiveList', Session.get('currentListId'), function(error) { 
+      if (error)
+        return alert(error.reason);
+    });
+    Meteor.Router.to("/");
+  },
+  'click .deleteList': function(e) {
+    Meteor.call('deleteList', Session.get('currentListId'), function(error) { 
+      if (error)
+        return alert(error.reason);
+    });
+    Meteor.Router.to("/");
   }
+
 });
