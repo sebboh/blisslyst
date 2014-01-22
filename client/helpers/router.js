@@ -6,7 +6,9 @@ Meteor.Router.add({
     and: function(id) { Session.set('currentListId', id); }
   },
 
-  '/create': 'createList'
+  '/create': 'createList',
+
+  '/archived': 'archivedLists'
 });
 
 Meteor.Router.filters({ 
