@@ -30,7 +30,7 @@ Template.listItems.helpers({
   },
 
   getItem: function(item) {
-    return Autolinker.link(item['item']);
+    return Autolinker.link(item['item'], {stripPrefix: false});
   }
 
 });
