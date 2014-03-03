@@ -15,6 +15,23 @@ body {
 
 #spinner { height: 300px } 
 
+/* navbar */
+
+.navbar-default {
+  background-color: #71eeb8;
+  .navbar-nav > li > a {
+    color: #000;
+  }
+  .navbar-brand {
+    color: #000;  
+  }
+}
+.navbar-brand {
+  color: #000;  
+}
+
+/* lists */
+
 .list {
   *zoom: 1;
   -webkit-transition: all 300ms 0ms;
@@ -24,6 +41,21 @@ body {
   transition: all 300ms 0ms ease-in;
   position: relative;
   opacity: 1;
+  .listItems {
+    list-style: none;
+    .listItem:before {
+      font-family: 'FontAwesome';
+      margin:0 5px 0 -15px;
+      color: blue;
+      line-height: 2em;
+    }
+    .unchecked:before {
+      content: '\f096';
+    }
+    .checked:before {
+      content: '\f046';
+    }
+  }
 }
 .list:before, .list:after {
   content: "";
@@ -48,6 +80,15 @@ body {
   font-size: 12px;
   font-weight: normal;
 }
+.removeItem {
+  color: #f00;
+}
+.removeItem:hover {
+  color: #A00000;
+}
+.checkItem:hover {
+  text-decoration: none;
+}
 .login-dropdown {
   padding-top: 12px;
 }
@@ -71,31 +112,14 @@ body {
   text-decoration: none; 
   background: rgba(0, 0, 0, 0.1);
 }
-.removeItem {
-  color: #f00;
-  padding-left: 5px;
-}
-.removeItem:hover {
-  color: #A00000;
-}
-.listItem {
-  line-height: 2em;
-}
-.navbar-default {
-  background-color: #71eeb8;
-  .navbar-brand {
-    color: #000;  
-  }
-}
-.navbar-brand {
-  color: #000;  
-}
+
+/* buttons */
+
 .btn-primary { 
   color: #FFFFFF; 
   background-color: #6BE0AD; 
   border-color: #1ADE89; 
 } 
- 
 .btn-primary:hover, 
 .btn-primary:focus, 
 .btn-primary:active, 

@@ -31,6 +31,13 @@ Meteor.methods({
     return listId; 
   },
 
+  verifyList: function(listId) {
+    var list = Lists.findOne(listId);
+    if (! list )
+      throw new Meteor.Error(404, "List not found");
+    return list;
+  },
+
   archiveList: function(listId) {
     Lists.update(listId, {$set: { archive: true }})
   },
@@ -40,17 +47,30 @@ Meteor.methods({
   },
 
   addListItem: function(listId, item) {
-    var list = Lists.findOne(listId);
-    if (! list )
-      throw new Meteor.Error(404, "List not found");
-    Lists.update(listId, { $addToSet: {items: item}});
+    Meteor.call('verifyList', listId);
+    Lists.update(listId, { $addToSet: {items: {'item': item, 'checked': 0}}});
   },
 
   deleteListItem: function(listId, item) {
-    var list = Lists.findOne(listId);
-    if (! list )
-      throw new Meteor.Error(404, "List not found");
-    Lists.update( { items: item }, { $pull: { items: item }});
+    Meteor.call('verifyList', listId);
+    Lists.update( listId, { $pull: { items: {item: item }}});
+  },
+
+  replaceList: function(listId, newList) {
+    Meteor.call('verifyList', listId);
+    Lists.update(listId, {$set: { items: newList }});
+  },
+
+  toggleListItem: function(listId, item) {
+    var list = Meteor.call('verifyList', listId);
+    var checked = 0;
+    list.items.some(function(i) {
+      if (i['item'] == item) {
+        checked = (i['checked'] == 0) ? 1 : 0;
+        return true;
+      }
+    });
+    Lists.update({_id: listId, 'items.item': item }, {$set: { 'items.$.checked': checked}});
   }
 
 });

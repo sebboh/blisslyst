@@ -6,26 +6,56 @@ Template.listItems.helpers({
   listItems: function() {
     var list = Lists.findOne(Session.get('currentListId'));
     if (list.items && list.items.length > 0) {
-      return list.items;
+      if (typeof list.items[0] == 'string') {
+        var newList = new Array();
+        for (var i=0; i<list.items.length; i++) {
+          newList.push({'item': list.items[i], 'checked': 0});
+        }
+        Meteor.call('replaceList', Session.get('currentListId'), newList, function(error) {
+          if (error)
+            return alert(error.reason);
+        });
+        return newList;
+      }
+      else 
+        return list.items;
     } else {
       return '';
     }
+  },
+  
+  isChecked: function(item) {
+    var itemClass = item['checked'] == 0 ? "unchecked" : "checked";
+    return new Handlebars.SafeString(itemClass);
+  },
+
+  getItem: function(item) {
+    return item['item'];
   }
+
 });
 
 Template.listItems.events({ 
   'mouseenter .listItem': function(e) {
       var $target = $(e.target);
-      $target.find('a').removeClass('hide');
+      $target.find('.itemControls').removeClass('hide');
   },
   'mouseleave .listItem': function(e) {
     var $target = $(e.target);
-    $target.find('a').addClass('hide');
+    $target.find('.itemControls').addClass('hide');
   },
   'click .removeItem': function(e) {
     var $target = $(e.target);
-    var item = $target.closest( "li" ).text();
+    var item = $target.closest( "li" ).text().trim();
     Meteor.call('deleteListItem', Session.get('currentListId'), item, function(error) { 
+      if (error)
+        return alert(error.reason);
+    });
+  },
+  'click .checkItem': function(e) {
+    var $target = $(e.target);
+    var item = $target.closest( "li" ).text().trim();
+    Meteor.call('toggleListItem', Session.get('currentListId'), item, function(error) { 
       if (error)
         return alert(error.reason);
     });
