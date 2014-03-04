@@ -44,7 +44,7 @@ Template.listItems.events({
     var $target = $(e.target);
     $target.find('.itemControls').addClass('hide');
   },
-  'click .listItem': function(e) {
+  'tap, click .listItem': function(e) {
     var $target = $(e.target);
     var item = $target.closest( "li" ).text().trim();
     Meteor.call('toggleListItem', Session.get('currentListId'), item, function(error) { 
