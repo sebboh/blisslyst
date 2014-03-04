@@ -24,15 +24,16 @@ Template.listTitle.events({
 });
 
 Template.listTitle.rendered = function () {
-  var lists = $('#container').find(".list");
+  var lists = $('#iso-container').find(".list");
   var count = Lists.find().count();
   if (!$('#iso-container').hasClass("isotope")) {
         // Initialize isotope
         $('#iso-container').isotope({
-          itemSelector : '.list',
+          
           layoutMode : 'fitRows',
           filter: '.list:not(.archive)'
         });
-  } 
+  }
+  $('#iso-container').isotope('insert', $('#iso-container').find(".list:not(.isotope-item)"));
 };
 

@@ -12,11 +12,20 @@ Template.allLists.events({
       filter: '.archive'
     }); 
     $('#iso-container').isotope('reLayout');
+    e.target.blur();
   },
   'click #activeLists': function(e) {
     $('#iso-container').isotope({
       filter: '.list:not(.archive)'
     }); 
     $('#iso-container').isotope('reLayout');
+    e.target.blur();
   }
 });
+
+Template.allLists.rendered = function () {
+  // Meteor.defer(function () {
+  //   alert('hi');
+
+  // }, 10000);
+};
