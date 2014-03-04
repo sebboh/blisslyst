@@ -4,3 +4,10 @@ Template.allLists.helpers({
     return Lists.find({ $or: [ { archive: {$exists: false } }, { archive: false } ] }, {sort: { submitted: -1 }});
   }
 });
+
+Template.allLists.rendered = function () {
+    $('#container').isotope({
+        itemSelector : '.list',
+        layoutMode : 'fitRows'
+    });
+}
