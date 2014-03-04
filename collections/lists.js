@@ -23,7 +23,8 @@ Meteor.methods({
     var list = _.extend(_.pick(listAttributes, 'listName'), { userId: user._id,
       creator: user.username,
       submitted: new Date().getTime(),
-      items: []
+      items: [],
+      users: [ user._id ]
     });
 
     var listId = Lists.insert(list);
@@ -76,6 +77,13 @@ Meteor.methods({
   updateListName: function(listId, name) {
     Meteor.call('verifyList', listId);
     Lists.update( listId, {$set: {listName: name}});
+  },
+
+  addUserToList: function(listId, username) {
+    var user = Meteor.users.findOne({username: username});
+    if (!user)
+      throw new Meteor.Error(404, "User not found");
+    Lists.update(listId, { $addToSet: { users: user._id } } );
   }
 
 });

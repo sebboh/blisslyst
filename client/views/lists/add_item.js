@@ -1,5 +1,5 @@
 Template.addItem.events({ 
-  'submit form': function(e) {
+  'submit #addItemForm': function(e) {
     e.preventDefault();
     
     var item = $(e.target).find('[name=item]').val();
@@ -9,6 +9,6 @@ Template.addItem.events({
         return alert(error.reason);
     else
         $('#addItemForm')[0].reset();
-});
-}
+    });
+  }
 });

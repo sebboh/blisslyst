@@ -1,0 +1,22 @@
+<template name="listUsers">
+  <div class="row">
+    <div class="dropdown col-sm-5">
+      {{userList}}
+      <a href="#" class="dropdown-toggle addUsersDropdown" data-toggle="dropdown">
+        <button type="button" class="btn btn-primary btn-sm">
+          <i class="fa fa-users"></i>
+          <i class="fa fa-plus"></i>
+        </button>
+      </a>
+      <div class="dropdown-menu col-sm-7 addUserForm" role="menu">
+        <form id="addUserForm" role="form">
+          <div class="form-group">
+            <input name="user" type="text" value="" placeholder="Add a user to this list"/>
+            <input type="submit" value="Add" class="btn btn-primary btn-sm"/> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</template>
