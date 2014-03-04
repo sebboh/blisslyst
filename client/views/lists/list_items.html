@@ -1,31 +1,53 @@
 <template name="listItems">
-  <div class="main list">
+  <div class="main list container">
     {{#with currentList}}
       <div class="listTitle">
         <h3 id="listName" data-type="text" data-name="listName" data-title="Enter title">{{listName}}</h3>
       </div>
-      <div class="listControls">
-        <button class="btn btn-primary archiveList">
-          <i class="fa fa-folder-open-o"></i>
-        </button>
-
-        <button class="btn btn-primary deleteList">
-          <i class="fa fa-trash-o"></i>
-        </button>
+      <div class="row">
+        <div class="col-md-5">
+          <p class="listControls">
+            <!--
+            <button class="btn btn-primary editList">
+              <i class="fa fa-pencil-square-o"></i>
+            </button>
+            -->
+            <button class="btn btn-primary archiveList">
+              <i class="fa fa-folder-open-o"></i>
+            </button>
+            <button class="btn btn-primary deleteList">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </p>
+        </div>
       </div>
 
       {{#if listItems}}
-      <ul class="listItems">
-        {{#each listItems}}
-          <li class="listItem {{isChecked this}}">{{{getItem this}}}
-            <span class="itemControls hide">
-              <a class="removeItem">
-                <i class="fa fa-times-circle"></i>
-              </a>
-            </span>
-          </li>
-        {{/each}}
+      <div class="row">
+        <div class="col-md-5">
+          <p id="deleteItemsControls" class="hide">
+            <button class="btn btn-sm btn-danger">
+              Delete Items
+            </button>
+            <button id="cancelDeleteItems" class="btn btn-sm btn-default">
+              Cancel
+            </button>
+          </p>
+        </div>
+      </div>
+      <div>
+        <ul class="listItems">
+          {{#each listItems}}
+            <li class="listItem {{isChecked this}}">{{{getItem this}}}
+              <span class="itemControls hide">
+                <a class="removeItem">
+                  <i class="fa fa-times-circle"></i>
+                </a>
+              </span>
+            </li>
+          {{/each}}
         </ul>
+      </div>
       {{else}}
         <p>No items yet!</p>
       {{/if}}

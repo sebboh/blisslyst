@@ -61,18 +61,33 @@ Template.listItems.events({
     });
   },
   'click .archiveList': function(e) {
-    Meteor.call('archiveList', Session.get('currentListId'), function(error) { 
-      if (error)
-        return alert(error.reason);
-    });
-    Meteor.Router.to("/");
+    if (window.confirm("Are you sure you want to archive this list?")) {
+      Meteor.call('archiveList', Session.get('currentListId'), function(error) { 
+        if (error)
+          return alert(error.reason);
+      });
+      Meteor.Router.to("/");
+    }
+    else $(e.target).blur();
   },
   'click .deleteList': function(e) {
-    Meteor.call('deleteList', Session.get('currentListId'), function(error) { 
-      if (error)
-        return alert(error.reason);
-    });
-    Meteor.Router.to("/");
+    if (window.confirm("Are you sure you want to delete this list?")) {
+      Meteor.call('deleteList', Session.get('currentListId'), function(error) { 
+        if (error)
+          return alert(error.reason);
+      });
+      Meteor.Router.to("/");
+    }
+    else $(e.target).blur();
+  },
+  'click .editList': function(e) {
+    $('#deleteItemsControls').hasClass('hide') ?
+      $('#deleteItemsControls').removeClass('hide') :
+      $('#deleteItemsControls').addClass('hide');
+    $(e.target).blur();
+  },
+  'click #cancelDeleteItems': function(e) {
+    $('#deleteItemsControls').addClass('hide');
   },
   'click .editable-submit': function(e) {
     var $input = $(e.target).parents('.form-group').find('.form-control');
@@ -95,4 +110,14 @@ Template.listItems.events({
 Template.listItems.rendered = function () {
    $.fn.editable.defaults.mode = 'inline';
    $('#listName').editable();
+   $( ".listItem" ).on( "swipe", swipeItem );
+    
+   function swipeItem(e){
+     var item = $(e.target).closest( "li" ).text().trim();
+     if (window.confirm("Delete item: " + item + "?"))
+      Meteor.call('deleteListItem', Session.get('currentListId'), item, function(error) { 
+       if (error)
+         return alert(error.reason);
+      });
+   }
 };
