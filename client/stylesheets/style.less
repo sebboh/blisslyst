@@ -10,7 +10,9 @@
 
 body {
   padding-top: 60px;
-  background: #eee; color: #000;
+  background: #eee;
+  background-image: url('/images/stardust.png');
+  color: #000;
 }  
 
 #spinner { height: 300px } 
@@ -24,6 +26,15 @@ body {
   }
   .navbar-brand {
     color: #000;  
+  }
+  .navbar-toggle {
+    border-color: #000;
+    &:hover, &:focus {
+      background-color: #5abe93;
+    }
+    .icon-bar {
+      background-color: #000;
+    }
   }
 }
 .navbar-brand {
@@ -46,7 +57,7 @@ body {
     .listItem:before {
       font-family: 'FontAwesome';
       margin:0 5px 0 -15px;
-      color: blue;
+      color: #78b9ec;
       line-height: 2em;
     }
     .unchecked:before {
@@ -57,7 +68,7 @@ body {
     }
     .listItem:hover {
       cursor: pointer;
-      color: #428bca;
+      color: #276899;
     }
   }
 }
@@ -87,15 +98,15 @@ body {
 .listTitle {
   line-height: 4em;
   &:hover {
-    color: #428bca;
+    color: #276899;
     cursor: pointer;
   }
 }
 .removeItem {
-  color: #f00;
+  color: #f9769e;
 }
 .removeItem:hover {
-  color: #A00000;
+  color: #fc99b7;
 }
 .checkItem:hover {
   text-decoration: none;
