@@ -1,14 +1,18 @@
 <template name="listItems">
   <div class="main list">
     {{#with currentList}}
-      <h3>{{listName}}</h3>
-      <button class="btn btn-primary archiveList">
-        <i class="fa fa-folder-open-o"></i>
-      </button>
+      <div class="listTitle">
+        <h3 id="listName" data-type="text" data-name="listName" data-title="Enter title">{{listName}}</h3>
+      </div>
+      <div class="listControls">
+        <button class="btn btn-primary archiveList">
+          <i class="fa fa-folder-open-o"></i>
+        </button>
 
-      <button class="btn btn-primary deleteList">
-        <i class="fa fa-trash-o"></i>
-      </button>
+        <button class="btn btn-primary deleteList">
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </div>
 
       {{#if listItems}}
       <ul class="listItems">

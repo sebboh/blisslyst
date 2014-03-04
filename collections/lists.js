@@ -71,6 +71,11 @@ Meteor.methods({
       }
     });
     Lists.update({_id: listId, 'items.item': item }, {$set: { 'items.$.checked': checked}});
+  },
+
+  updateListName: function(listId, name) {
+    Meteor.call('verifyList', listId);
+    Lists.update( listId, {$set: {listName: name}});
   }
 
 });

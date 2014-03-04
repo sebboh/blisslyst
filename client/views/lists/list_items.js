@@ -73,6 +73,19 @@ Template.listItems.events({
         return alert(error.reason);
     });
     Meteor.Router.to("/");
+  },
+  'click .editable-submit': function(e) {
+    var $target = $(e.target);
+    var name = $target.parents('.form-group').find('.form-control').val();
+    Meteor.call('updateListName', Session.get('currentListId'), name, function(error) {
+      if (error)
+        return alert(error.reason);
+    });
   }
 
 });
+
+Template.listItems.rendered = function () {
+   $.fn.editable.defaults.mode = 'inline';
+   $('#listName').editable();
+};
