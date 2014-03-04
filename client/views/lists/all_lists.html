@@ -1,5 +1,9 @@
 <template name="allLists">
-  <div id="container" class="lists">
+  <div id="listControls">
+    <button id="archivedLists" class="btn btn-primary">Archived</button>
+    <button id="activeLists" class="btn btn-primary">Active</button>
+  </div>
+  <div id="iso-container" class="lists">
     {{#each lists}}
       {{> listTitle}}
     {{/each}}

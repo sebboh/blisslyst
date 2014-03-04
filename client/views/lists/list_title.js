@@ -1,3 +1,9 @@
+Template.listTitle.helpers({
+  archived: function(list) {
+    return list['archive'] ? 'archive' : '';
+  }
+});
+
 Template.listTitle.events({ 
   'mouseenter .listItem': function(e) {
       var $target = $(e.target);
@@ -16,3 +22,17 @@ Template.listTitle.events({
     });
   }
 });
+
+Template.listTitle.rendered = function () {
+  var lists = $('#container').find(".list");
+  var count = Lists.find().count();
+  if (!$('#iso-container').hasClass("isotope")) {
+        // Initialize isotope
+        $('#iso-container').isotope({
+          itemSelector : '.list',
+          layoutMode : 'fitRows',
+          filter: '.list:not(.archive)'
+        });
+  } 
+};
+
