@@ -75,12 +75,19 @@ Template.listItems.events({
     Meteor.Router.to("/");
   },
   'click .editable-submit': function(e) {
-    var $target = $(e.target);
-    var name = $target.parents('.form-group').find('.form-control').val();
-    Meteor.call('updateListName', Session.get('currentListId'), name, function(error) {
-      if (error)
-        return alert(error.reason);
-    });
+    var $input = $(e.target).parents('.form-group').find('.form-control');
+    var name = $input.val();
+    if (name.length < 1) {
+      alert('Please enter a name, silly');
+      $input.focus();
+      return false;
+    }
+    else {
+      Meteor.call('updateListName', Session.get('currentListId'), name, function(error) {
+        if (error)
+          return alert(error.reason);
+      });
+    }
   }
 
 });
