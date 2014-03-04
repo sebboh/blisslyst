@@ -1,7 +1,7 @@
 <template name="listTitle">
-  <div class="list list-content {{archived this}}">
+  <div class="list {{archived this}}" data-timestamp="{{submitted}}" data-creator="{{creator}}">
     <h3><a href="{{listItemsPath this}}">{{listName}}</a></h3>
-    <p>
+    <p class="creator">
       created by {{creator}}
     </p>
   </div>

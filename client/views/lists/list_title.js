@@ -29,9 +29,16 @@ Template.listTitle.rendered = function () {
   if (!$('#iso-container').hasClass("isotope")) {
         // Initialize isotope
         $('#iso-container').isotope({
-          
           layoutMode : 'fitRows',
-          filter: '.list:not(.archive)'
+          filter: '.list:not(.archive)',
+          getSortData: {
+            creator : function($elem) {
+              return $elem.attr('data-creator');
+            },
+            timestamp : function($elem) {
+              return $elem.attr('data-timestamp');
+            }
+          }
         });
   }
   $('#iso-container').isotope('insert', $('#iso-container').find(".list:not(.isotope-item)"));

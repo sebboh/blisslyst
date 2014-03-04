@@ -1,7 +1,14 @@
 <template name="allLists">
   <div id="listControls">
-    <button id="archivedLists" class="btn btn-primary">Archived</button>
-    <button id="activeLists" class="btn btn-primary">Active</button>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active activeLists">
+        <input type="radio" name="listToggle" id="activeLists">Active
+      </label>
+      <label class="btn btn-primary archivedLists">
+        <input type="radio" name="listToggle" id="archiveLists">Archived
+      </label>
+    </div>
+    <button id="sortByDate" class="btn btn-primary">Date <i class="fa fa-sort-asc"/></button>
   </div>
   <div id="iso-container" class="lists">
     {{#each lists}}

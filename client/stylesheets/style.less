@@ -1,10 +1,9 @@
 @import "/packages/bootstrap3-less/bootstrap.lessimport";
 
-.grid-block, .main, .list { 
+.grid-block, .main, .list, .listDetail { 
   background: #fff;
   border-radius: 3px;
   padding: 10px;
-  margin: 5px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); 
 }
 
@@ -13,7 +12,7 @@ body {
   background: #eee;
   background-image: url('/images/stardust.png');
   color: #000;
-}  
+}
 
 #spinner { height: 300px } 
 
@@ -44,14 +43,24 @@ body {
 /* lists */
 
 .list {
-  *zoom: 1;
   -webkit-transition: all 300ms 0ms;
   -webkit-transition-delay: ease-in;
   -moz-transition: all 300ms 0ms ease-in;
   -o-transition: all 300ms 0ms ease-in;
   transition: all 300ms 0ms ease-in;
-  position: relative;
-  opacity: 1;
+  margin: 5px;
+}
+
+/* listDetail */
+
+.listDetail {
+  .listTitle {
+    line-height: 4em;
+    &:hover {
+      color: #276899;
+      cursor: pointer;
+    }
+  }
   .listItems {
     list-style: none;
     .listItem:before {
@@ -70,49 +79,19 @@ body {
       cursor: pointer;
       color: #276899;
     }
+  }  
+  .removeItem {
+    color: #f9769e;
+    &:hover {
+      color: #fc99b7;  
+    }
   }
-}
-.list:before, .list:after {
-  content: "";
-  display: table;
-}
-.list:after { clear: both }
-.list .list-content { float: left }
-.list .list-content h3 {
-  margin: 0; line-height: 1.4; font-size: 18px; color: #000;
-}
-.list .list-content h3 a {
-  display: inline-block;
-  margin-right: 5px;
-  color: #000;
-}
-.list .list-content h3 span {
-  font-weight: normal; font-size: 14px;
-  display: inline-block; color: #aaaaaa;
-}
-.list .list-content p { margin: 0 } 
-.date { 
-  font-size: 12px;
-  font-weight: normal;
-}
-.listTitle {
-  line-height: 4em;
-  &:hover {
-    color: #276899;
-    cursor: pointer;
+  .checkItem:hover {
+    text-decoration: none;
   }
-}
-.removeItem {
-  color: #f9769e;
-}
-.removeItem:hover {
-  color: #fc99b7;
-}
-.checkItem:hover {
-  text-decoration: none;
-}
-.editable-click {
-  border-bottom: none;
+  .editable-click {
+    border-bottom: none;
+  }  
 }
 
 /* misc */
