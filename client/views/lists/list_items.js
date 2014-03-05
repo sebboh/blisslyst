@@ -36,14 +36,7 @@ Template.listItems.helpers({
 });
 
 Template.listItems.events({ 
-  'mouseenter .listItem': function(e) {
-      var $target = $(e.target);
-      $target.find('.itemControls').removeClass('hide');
-  },
-  'mouseleave .listItem': function(e) {
-    var $target = $(e.target);
-    $target.find('.itemControls').addClass('hide');
-  },
+
   'tap, click .listItem': function(e) {
     var $target = $(e.target);
     var item = $target.closest( "li" ).text().trim();
