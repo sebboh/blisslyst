@@ -1,8 +1,10 @@
 Template.allLists.helpers({
   lists: function() {
-    // only show lists that are not archived
-    //return Lists.find({ $or: [ { archive: {$exists: false } }, { archive: false } ] }, {sort: { submitted: -1 }});
-    return Lists.find({},{sort: { submitted: -1 }});
+    var lists = Lists.find({},{sort: { submitted: -1 }});
+    if (lists.count() > 0)
+      return lists;
+    else
+      return '';
   }
 });
 
