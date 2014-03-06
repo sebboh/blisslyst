@@ -13,13 +13,11 @@ Template.allLists.events({
     $('#iso-container').isotope({
       filter: '.archive'
     }); 
-    $('#iso-container').isotope('reLayout');
   },
   'click .activeLists': function(e) {
     $('#iso-container').isotope({
-      filter: '.list:not(.archive)'
+      filter: '.list-card:not(.archive)'
     }); 
-    $('#iso-container').isotope('reLayout');
   },
   'click #sortByDate': function(e) {
     var directionIcon = $(e.target).find('i');
@@ -32,7 +30,6 @@ Template.allLists.events({
       sortBy: 'timestamp',
       sortAscending: directionAsc,
     }); 
-    $('#iso-container').isotope('reLayout');
   }
 });
 
