@@ -1,10 +1,10 @@
-Template.listTitle.helpers({
+Template.listCard.helpers({
   archived: function(list) {
     return list['archive'] ? 'archive' : '';
   }
 });
 
-Template.listTitle.events({ 
+Template.listCard.events({ 
   'mouseenter .listItem': function(e) {
       var $target = $(e.target);
       $target.find('a').removeClass('hide');
@@ -23,7 +23,7 @@ Template.listTitle.events({
   }
 });
 
-Template.listTitle.rendered = function () {
+Template.listCard.rendered = function () {
   var lists = $('#iso-container').find(".list");
   var count = Lists.find().count();
   if (!$('#iso-container').hasClass("isotope")) {
