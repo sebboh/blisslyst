@@ -1,6 +1,6 @@
-Template.listItems.helpers({
+Template.list.helpers({
   currentList: function() {
-    return Lists.findOne(Session.get('currentListId'));
+    return Lists.findOne();
   },
 
   listItems: function() {
@@ -35,7 +35,7 @@ Template.listItems.helpers({
 
 });
 
-Template.listItems.events({ 
+Template.list.events({ 
 
   'tap, click .listItem': function(e) {
     var $target = $(e.target);
@@ -59,7 +59,7 @@ Template.listItems.events({
         if (error)
           return alert(error.reason);
       });
-      Meteor.Router.to("/");
+      Router.go('allLists');
     }
     else $(e.target).blur();
   },
@@ -69,7 +69,7 @@ Template.listItems.events({
         if (error)
           return alert(error.reason);
       });
-      Meteor.Router.to("/");
+      Router.go('allLists');
     }
     else $(e.target).blur();
   },
@@ -100,7 +100,7 @@ Template.listItems.events({
 
 });
 
-Template.listItems.rendered = function () {
+Template.list.rendered = function () {
    $.fn.editable.defaults.mode = 'inline';
    $('#listName').editable();
    $( ".listItem" ).on( "swipe", swipeItem );

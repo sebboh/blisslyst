@@ -10,7 +10,7 @@ Template.createList.events({
       if (error)
         return alert(error.reason);
 
-      Meteor.Router.to('listItems', id); 
+      Router.go('list', {_id: id});
     });
   }
 });

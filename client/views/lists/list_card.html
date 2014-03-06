@@ -1,6 +1,6 @@
 <template name="listCard">
-  <div class="list list-card {{archived this}}" data-timestamp="{{submitted}}" data-creator="{{creator}}">
-    <h3><a href="{{listItemsPath this}}">{{listName}}</a></h3>
+  <div class="list-card {{archived this}}" data-timestamp="{{submitted}}" data-creator="{{creator}}" data-id="{{this._id}}">
+    <h3>{{listName}}</h3>
     <p class="creator">
       created by {{creator}}
     </p>

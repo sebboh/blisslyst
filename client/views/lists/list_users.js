@@ -1,7 +1,7 @@
 Template.listUsers.helpers({
 
   userList: function() {
-    var list = Lists.findOne(Session.get('currentListId'));
+    var list = Lists.findOne();
     var userList = '';
     for (var i = 0; i < list.users.length; i++) {
       if (userList.length > 0)

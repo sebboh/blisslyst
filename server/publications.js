@@ -3,6 +3,11 @@ Meteor.publish('lists', function() {
     return Lists.find({'users': this.userId});
 });
 
+Meteor.publish('list', function(listId) {
+  if (this.userId)
+    return Lists.find({'users': this.userId, _id: listId});
+});
+
 Meteor.publish("allUserData", function () {
   return Meteor.users.find({}, {fields: {'username': 1, '_id': 1}});
 });

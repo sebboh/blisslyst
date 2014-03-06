@@ -35,3 +35,21 @@ Template.allLists.events({
     $('#iso-container').isotope('reLayout');
   }
 });
+
+Template.allLists.rendered = function () {
+  if (!$('#iso-container').hasClass("isotope")) {
+        // Initialize isotope
+        $('#iso-container').isotope({
+          layoutMode : 'fitRows',
+          filter: '.list-card:not(.archive)',
+          getSortData: {
+            creator : function($elem) {
+              return $elem.attr('data-creator');
+            },
+            timestamp : function($elem) {
+              return $elem.attr('data-timestamp');
+            }
+          }
+        });
+  }
+};

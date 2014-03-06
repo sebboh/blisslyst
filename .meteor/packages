@@ -8,7 +8,6 @@ preserve-inputs
 
 accounts-password
 
-router
 page-js-ie-support
 HTML5-History-API
 
@@ -22,3 +21,5 @@ font-awesome
 bootstrap-editable
 jquery-mobile-custom
 jquery-isotope
+
+iron-router

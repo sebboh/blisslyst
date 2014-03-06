@@ -1,11 +1,17 @@
 <template name="createList"> 
-  <form role="form" class="main">
-    <div class="form-group">
-      <label for="listName">Name</label> 
-      <input class="form-control" name="listName" id="listName" type="text" value="" placeholder="Name your List!"/>
+  {{#if currentUser}}
+    <form role="form" class="main">
+      <div class="form-group">
+        <label for="listName">Name</label> 
+        <input class="form-control" name="listName" id="listName" type="text" value="" placeholder="Name your List!"/>
+      </div>
+      <div class="form-group"> 
+        <input type="submit" value="Create" class="btn btn-primary"/> 
+      </div>
+    </form>
+  {{else}}
+    <div class="main">
+      {{> accessDenied}}
     </div>
-    <div class="form-group"> 
-      <input type="submit" value="Create" class="btn btn-primary"/> 
-    </div>
-  </form>
+  {{/if}}
 </template>

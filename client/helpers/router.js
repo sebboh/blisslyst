@@ -1,25 +1,29 @@
-Meteor.Router.add({
-  '/': 'allLists',
+Router.map(function() {
+  this.route('allLists', {
+    path: '/',
+    waitOn: function() {
+      return [Meteor.subscribe('lists'),
+              Meteor.subscribe('allUserData')];
+    }
+  });
 
-  '/lists/:_id': {
-    to: 'listItems',
-    and: function(id) { Session.set('currentListId', id); }
-  },
+  this.route('list', {
+    path: '/lists/:_id',
+    waitOn: function() {
+      return [Meteor.subscribe('list', this.params._id),
+              Meteor.subscribe('allUserData')];
+    },
+    before: function() {
+      Session.set('currentListId', this.params._id);
+    }
+  });
 
-  '/create': 'createList',
+  this.route('createList', {
+    path: '/new'
+  });
 
-  '/archived': 'archivedLists'
 });
 
-Meteor.Router.filters({ 
-  'requireLogin': function(page) {
-  if (Meteor.user()) 
-    return page;
-  else if (Meteor.loggingIn()) 
-    return 'loading';
-  else
-    return 'accessDenied';
-  } 
+Router.configure({
+  layoutTemplate: 'layout'
 });
-
-Meteor.Router.filter('requireLogin', {only: 'createList'});

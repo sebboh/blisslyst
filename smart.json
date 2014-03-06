@@ -5,6 +5,7 @@
     "spin": {},
     "bootstrap3-less": {},
     "accounts-ui-bootstrap-3": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "iron-router": {}
   }
 }
