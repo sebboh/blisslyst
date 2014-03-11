@@ -21,9 +21,9 @@ Template.allLists.events({
   },
   'click #sortByDate': function(e) {
     var directionIcon = $(e.target).find('i');
-    var directionAsc = directionIcon.hasClass('fa-sort-asc');
+    var directionAsc = directionIcon.hasClass('fa-sort-asc') || directionIcon.hasClass('fa-sort');
     directionAsc ? 
-      directionIcon.removeClass('fa-sort-asc').addClass('fa-sort-desc') :
+      directionIcon.removeClass('fa-sort-asc').removeClass('fa-sort').addClass('fa-sort-desc') :
       directionIcon.removeClass('fa-sort-desc').addClass('fa-sort-asc');
     $(e.target).blur();
     $('#iso-container').isotope({
