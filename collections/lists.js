@@ -49,6 +49,9 @@ Meteor.methods({
 
   addListItem: function(listId, item) {
     Meteor.call('verifyList', listId);
+    item = item.trim();
+    if(item.substr(-1) == '/')
+      item = item.substr(0, item.length - 1);
     Lists.update(listId, { $addToSet: {items: {'item': item, 'checked': 0}}});
   },
 
