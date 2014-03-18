@@ -9,13 +9,14 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">Eskimo Kisses</a>
+     
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           {{#if currentUser}}
-            <li><a href="{{pathFor 'createList'}}">New</a></li>
+            <li><a href="{{pathFor 'createList'}}" id="new-list"><i class="fa fa-list"></i><i class="fa fa-plus-circle plus-badge"></i></a></li>
           {{/if}}
-        </ul>
+        </ul>   
         <ul class="nav navbar-nav navbar-right login-dropdown"> 
           <li>{{loginButtons}}</li>
         </ul> 
