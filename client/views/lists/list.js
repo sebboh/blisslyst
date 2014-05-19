@@ -18,7 +18,7 @@ Template.list.helpers({
         return newList;
       }
       else 
-        return list.items.sort(function(a,b) { return b['checked'] - a['checked']});
+        return list.items.sort(function(a,b) { return a['checked'] - b['checked']});
     } else {
       return '';
     }
