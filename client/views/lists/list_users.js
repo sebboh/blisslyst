@@ -41,8 +41,7 @@ Template.listUsers.rendered = function () {
     e.stopPropagation();
   });
   $('#addUsers').on('show.bs.dropdown', function (e) {
-    $('#arrow').show().css('top', $('#addUsersDropdown').outerHeight() + 7);
-    $('#arrow').css('left', $('#addUsersDropdown').outerWidth() + 24);
+    $('#arrow').show().css('top', $('#addUsersDropdown').position()['top'] + 20).css('left', $('#addUsersDropdown').position()['left']);
   });
   $('#addUsers').on('hide.bs.dropdown', function (e) {
     $('#arrow').hide();
