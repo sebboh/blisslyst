@@ -135,44 +135,44 @@ body {
   text-decoration: none; 
   background: rgba(0, 0, 0, 0.1);
 }
-.addUsersDropdown:hover {
-  text-decoration: none;
+.addUsersDropdown {
+  // position: fixed;
+  &:hover {
+    text-decoration: none;
+  }
 }
 .addUserForm {
   width: auto;
   margin-left: 4px;
   margin-top: 12px;
   padding: 10px;
-  .arrow {
-    width: 70px;
-    height: 16px;
-    overflow: hidden;
+}
+.arrow {
+  width: 50px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 9999;
+  display: none;
+  &:after {
+    content: "";
     position: absolute;
-    left: 70%;
-    margin-left: -35px;
-    top: -10px;
-    // background-color: #000;
-    // background-image: none;
-    &:after {
-      content: "";
-      position: absolute;
-      right: 20px;
-      top: 6px;
-      width: 25px;
-      height: 25px;
-      -webkit-box-shadow: -6px -5px 10px -9px black,
-                          -5px -6px 10px -9px black;
-      -moz-box-shadow: -6px -5px 10px -9px black,
-                       -5px -6px 10px -9px black;
-      box-shadow: -6px -5px 10px -9px black,
-                  -5px -6px 10px -9px black;
-      -webkit-transform: rotate(45deg);
-      -moz-transform:    rotate(45deg);
-      -ms-transform:     rotate(45deg);
-      -o-transform:      rotate(45deg);
-      background: #fff;
-    }  
-  }
+    right: 20px;
+    top: 6px;
+    width: 25px;
+    height: 25px;
+    -webkit-box-shadow: -6px -5px 10px -9px black,
+                        -5px -6px 10px -9px black;
+    -moz-box-shadow: -6px -5px 10px -9px black,
+                     -5px -6px 10px -9px black;
+    box-shadow: -6px -5px 10px -9px black,
+                -5px -6px 10px -9px black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform:    rotate(45deg);
+    -ms-transform:     rotate(45deg);
+    -o-transform:      rotate(45deg);
+    background: #fff;
+  }  
 }
 
 /* buttons */

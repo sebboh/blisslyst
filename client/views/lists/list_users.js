@@ -40,4 +40,11 @@ Template.listUsers.rendered = function () {
   $('.dropdown-menu').find('form').click(function (e) {
     e.stopPropagation();
   });
+  $('#addUsers').on('show.bs.dropdown', function (e) {
+    $('#arrow').show().css('top', $('#addUsersDropdown').outerHeight() + 7);
+    $('#arrow').css('left', $('#addUsersDropdown').outerWidth() + 24);
+  });
+  $('#addUsers').on('hide.bs.dropdown', function (e) {
+    $('#arrow').hide();
+  });
 };
