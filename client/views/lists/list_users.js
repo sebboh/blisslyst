@@ -46,4 +46,18 @@ Template.listUsers.rendered = function () {
   $('#addUsers').on('hide.bs.dropdown', function (e) {
     $('#arrow').hide();
   });
+
+  var allUsers = Meteor.users.find({},{username:1}).fetch();
+  var listUsers = Lists.findOne().users;
+  userList = []
+  for ( var i=0; i<allUsers.length; i++ ) { 
+    if (listUsers.indexOf(allUsers[i]._id) < 0)
+      userList.push(allUsers[i].username); 
+  }
+  $( "#adduser" ).autocomplete({
+    source: userList,
+    minLength: 0
+  });
+  $( "#adduser" ).on( "focus", function( event, ui ) {$(this).autocomplete("search", "") } );
+  $( "#adduser" ).on( "autocompleteselect", function( event, ui ) { event.stopPropagation(); } );
 };
