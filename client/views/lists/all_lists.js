@@ -12,12 +12,16 @@ Template.allLists.events({
   'click .archivedLists': function(e) {
     $('#iso-container').isotope({
       filter: '.archive'
-    }); 
+    });
+    $('#activeListLabel').removeClass('active');
+    $('#archiveListLabel').addClass('active');
   },
   'click .activeLists': function(e) {
     $('#iso-container').isotope({
       filter: '.list-card:not(.archive)'
     }); 
+    $('#activeListLabel').addClass('active');
+    $('#archiveListLabel').removeClass('active');
   },
   'click #sortByDate': function(e) {
     var directionIcon = $(e.target).find('i');
