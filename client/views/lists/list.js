@@ -37,7 +37,7 @@ Template.list.helpers({
 
 Template.list.events({ 
 
-  'tap, click .listItem': function(e) {
+  'click .listItem': function(e) {
     var $target = $(e.target);
     if (!$target.is('a')) {
       var item = $target.closest( "li" ).text().trim();
@@ -46,6 +46,7 @@ Template.list.events({
           return alert(error.reason);
       });
     }
+    e.stopPropagation();
   },
   'click .removeItem': function(e) {
     var $target = $(e.target);
