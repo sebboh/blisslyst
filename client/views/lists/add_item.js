@@ -10,5 +10,7 @@ Template.addItem.events({
     else
         $('#addItemForm')[0].reset();
     });
+    window.scrollTo(0, 0);
   }
+
 });
