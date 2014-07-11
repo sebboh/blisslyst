@@ -39,11 +39,13 @@ Template.list.events({
 
   'tap, click .listItem': function(e) {
     var $target = $(e.target);
-    var item = $target.closest( "li" ).text().trim();
-    Meteor.call('toggleListItem', Session.get('currentListId'), item, function(error) { 
-      if (error)
-        return alert(error.reason);
-    });
+    if (!$target.is('a')) {
+      var item = $target.closest( "li" ).text().trim();
+      Meteor.call('toggleListItem', Session.get('currentListId'), item, function(error) { 
+        if (error)
+          return alert(error.reason);
+      });
+    }
   },
   'click .removeItem': function(e) {
     var $target = $(e.target);
