@@ -31,6 +31,7 @@ Template.listUsers.events({
     else
         $('#addUserForm')[0].reset();
     });
+    window.scrollTo(0, 0);
   }
 
 });
