@@ -32,8 +32,12 @@ Template.listUsers.events({
         $('#addUserForm')[0].reset();
     });
     window.scrollTo(0, 0);
-  }
+  },
 
+  'click #addUsersDropdown': function (e) {
+    window.scrollTo(0,document.body.scrollHeight);
+  }
+  
 });
 
 Template.listUsers.rendered = function () {
