@@ -22,6 +22,21 @@ Router.map(function() {
     path: '/new'
   });
 
+  this.route('extension', {
+    path: '/extension',
+    where: 'server',
+    action: function() {
+      var userId = get_cookies(this.request)['meteor_userid'];
+      var loginToken = get_cookies(this.request)['meteor_logintoken'];
+      var user = Meteor.users.findOne({_id:userId, "services.resume.loginTokens.hashedToken":Accounts._hashLoginToken(loginToken)});
+      if (user) {
+        //var json = Collection.find().fetch(); // what ever data you want to return
+        this.response.setHeader('Content-Type', 'application/json');
+        this.response.end(JSON.stringify('{ response: "helloworld" }'));
+      }
+    }
+  });  
+
 });
 
 Router.configure({
