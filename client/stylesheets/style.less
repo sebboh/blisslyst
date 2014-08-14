@@ -1,10 +1,18 @@
 @import "/packages/bootstrap3-less/bootstrap.import.less";
 
+.transition (@transition) {
+  -webkit-transition: @transition;  
+  -moz-transition:    @transition;
+  -ms-transition:     @transition; 
+  -o-transition:      @transition;  
+}
+
 .main, .list-card, .listDetail { 
-  background: #fff;
+  background: #eee;
   border-radius: 3px;
   padding: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); 
+  opacity: 0.9;
 }
 
 @font-face {
@@ -16,7 +24,7 @@ body {
   font-family: "QuickSand";
   padding-top: 60px;
   background: #eee;
-  // background-image: url('/images/congruent_pentagon.png');
+  background-attachment: fixed;
   background-image: url('/images/yosemite.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,17 +37,23 @@ body {
 
 .navbar-default {
   background-color: #90A9CF;
-  opacity: 0.5;
+  opacity: 0.8;
+  .transition(opacity 0.5s ease-in-out);
+  &:hover {
+    opacity: 1;
+  }
   .navbar-nav > li > a {
     color: #000;
+    opacity: 1;
   }
   .navbar-brand {
-    color: #000;  
+    color: #000;
+    opacity: 1;
   }
   .navbar-toggle {
     border-color: #000;
     &:hover, &:focus {
-      background-color: #5abe93;
+      background-color: #0066CC;
     }
     .icon-bar {
       background-color: #000;
@@ -50,12 +64,19 @@ body {
   color: #000;  
 }
 #new-list {
+  opacity: 1;
   font-size: 1.4em;
 }
 .plus-badge {
+  opacity: 1;
   position: absolute;
   font-size: 0.7em;
   top: 8px;
+}
+#login-dropdown-list {
+  a {
+    color: #000;
+  }
 }
 
 /* lists */
@@ -65,10 +86,12 @@ body {
   padding: 10px;
   margin: 5px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); 
-  opacity: 0.6;
+  opacity: 0.6 !important;
+  .transition(opacity 0.5s ease-in-out);
   &:hover {
     cursor: pointer;
     background: #6699FF;
+    opacity: 1;
   }
 }
 
