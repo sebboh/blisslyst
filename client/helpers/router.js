@@ -4,7 +4,8 @@ Router.map(function() {
     waitOn: function() {
       return [Meteor.subscribe('lists'),
               Meteor.subscribe('allUserData')];
-    }
+    },
+    onBeforeAction: 'loading'
   });
 
   this.route('list', {
@@ -13,7 +14,7 @@ Router.map(function() {
       return [Meteor.subscribe('list', this.params._id),
               Meteor.subscribe('allUserData')];
     },
-    before: function() {
+    onBeforeAction: function() {
       Session.set('currentListId', this.params._id);
     }
   });
