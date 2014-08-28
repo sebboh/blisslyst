@@ -36,7 +36,6 @@ Template.list.helpers({
 });
 
 Template.list.events({ 
-
   'click .listItem': function(e) {
     var $target = $(e.target);
     if (!$target.is('a')) {
@@ -106,14 +105,27 @@ Template.list.events({
 Template.list.rendered = function () {
    $.fn.editable.defaults.mode = 'inline';
    $('#listName').editable();
-   $( ".listItem" ).on( "swipe", swipeItem );
+   $( ".listItem" ).on( "swiperight", deleteItem );
+   $( ".listItem" ).on( "swipeleft", toggleItem);
     
-   function swipeItem(e){
+   function deleteItem(e){
      var item = $(e.target).closest( "li" ).text().trim();
      if (window.confirm("Delete item: " + item + "?"))
       Meteor.call('deleteListItem', Session.get('currentListId'), item, function(error) { 
        if (error)
          return alert(error.reason);
       });
+   }
+   //todo: make this a helper function
+   function toggleItem(e){
+    var $target = $(e.target);
+    if (!$target.is('a')) {
+      var item = $target.closest( "li" ).text().trim();
+      Meteor.call('toggleListItem', Session.get('currentListId'), item, function(error) { 
+        if (error)
+          return alert(error.reason);
+      });
+    }
+    e.stopPropagation();
    }
 };
