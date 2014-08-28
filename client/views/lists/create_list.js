@@ -14,3 +14,9 @@ Template.createList.events({
     });
   }
 });
+
+Template.createList.rendered = function () {
+  if($('.navbar-toggle').css('display') !='none'){
+    $(".navbar-toggle").trigger( "click" );
+  }
+}
