@@ -43,5 +43,8 @@ Router.map(function() {
 Router.configure({
   layoutTemplate: 'layout',
   loadingTemplate: 'loading',
-  notFoundTemplate: 'notFound'
+  notFoundTemplate: 'notFound',
+  yieldTemplates: {
+    footer: {to: 'footer'}
+  }
 });
