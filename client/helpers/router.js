@@ -23,6 +23,14 @@ Router.map(function() {
     path: '/new'
   });
 
+  this.route('about', {
+    path: '/about'
+  });
+
+  this.route('faq', {
+    path: '/faq'
+  });
+
   this.route('extension', {
     path: '/extension',
     where: 'server',
