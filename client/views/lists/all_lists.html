@@ -1,28 +1,32 @@
 <template name="allLists">
-  {{#if lists}}
-    <div id="listControls">
-      <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-primary active activeLists" id="activeListLabel">
-          <input type="radio" name="listToggle" id="activeLists">Active
-        </label>
-        <label class="btn btn-primary archivedLists" id="archiveListLabel">
-          <input type="radio" name="listToggle" id="archiveLists">Archived
-        </label>
+  {{#if currentUser}}
+    {{#if lists}}
+      <div id="listControls">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active activeLists" id="activeListLabel">
+            <input type="radio" name="listToggle" id="activeLists">Active
+          </label>
+          <label class="btn btn-primary archivedLists" id="archiveListLabel">
+            <input type="radio" name="listToggle" id="archiveLists">Archived
+          </label>
+        </div>
+        <button id="sortByDate" class="btn btn-primary">Date <i class="fa fa-sort"></i></button>
       </div>
-      <button id="sortByDate" class="btn btn-primary">Date <i class="fa fa-sort"></i></button>
-    </div>
-    <div id="iso-container" class="lists">
-      {{#each lists}}
-        {{> listCard}}
-      {{/each}}
-    </div>
-  {{else}}
-    <div class="main">
-      <div class="row">
-        <div class="col-md-5">
-          No lists to show. <a href="{{pathFor 'createList'}}">Create a new list!</a>
+      <div id="iso-container" class="lists">
+        {{#each lists}}
+          {{> listCard}}
+        {{/each}}
+      </div>
+    {{else}}
+      <div class="main">
+        <div class="row">
+          <div class="col-md-5">
+            No lists to show. <a href="{{pathFor 'createList'}}">Create a new list!</a>
+          </div>
         </div>
       </div>
-    </div>
+    {{/if}}
+  {{else}}
+    {{>welcome}}
   {{/if}}
 </template>

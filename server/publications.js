@@ -1,6 +1,8 @@
 Meteor.publish('lists', function() {
   if (this.userId)
     return Lists.find({'users': this.userId});
+  else
+    return Lists.find({'users': ''});
 });
 
 Meteor.publish('list', function(listId) {
