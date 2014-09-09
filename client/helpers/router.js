@@ -31,6 +31,10 @@ Router.map(function() {
     path: '/faq'
   });
 
+  this.route('themes', {
+    path: '/themes'
+  });
+
   this.route('extension', {
     path: '/extension',
     where: 'server',
