@@ -10,5 +10,5 @@ Questions and comments are welcome:
 
 lauren@banebuttercupandfriends.org
 &
-steve@banebuttercpandfriends.org
+steve@banebuttercupandfriends.org
 
