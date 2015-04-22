@@ -1,0 +1,18 @@
+<template name="search">
+    <div class="main">
+        {{> esInput index="lists" placeholder="Search..."}}
+        {{#esEach index="lists"}}
+            {{> listCard}}
+        {{/esEach}}
+
+        {{#ifEsHasNoResults index="lists"}}
+            <div class="no-results">No results found!</div>
+        {{/ifEsHasNoResults}}
+
+        {{#ifEsIsSearching index="lists"}}
+                <div>Loading...</div>
+        {{/ifEsIsSearching}}
+
+        
+    </div>
+</template>

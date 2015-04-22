@@ -1,4 +1,4 @@
-Lists = new Meteor.Collection('lists');
+Lists = new Mongo.Collection('lists');
 
 Lists.allow({
   insert: function(userId, doc) {
