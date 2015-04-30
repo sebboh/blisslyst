@@ -13,7 +13,8 @@ Router.route('/', {
   },
   action: function () {
     this.render('allLists');
-  }
+  },
+  name: 'allLists'
 });
 
 Router.route('/lists/:_id', {
